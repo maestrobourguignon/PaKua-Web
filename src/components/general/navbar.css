@@ -1,0 +1,199 @@
+.footer {
+  width: 100%;
+}
+.navbar-container {
+  width: 100%;
+  position: relative;
+}
+
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--primary-color);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  color: white; /* Para los iconos y texto */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-header h1 {
+  font-size: 1.5rem;
+  color: white;
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 1;
+  font-family: 'trajan-pro-3', serif;
+}
+
+/* Estilos de navegación de escritorio */
+.desktop-nav {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.navbar-header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.navbar-header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.navbar-logo {
+  height: 55px;
+  margin-right: 1rem;
+}
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+}
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* Permite que el brand ocupe el espacio necesario */
+  flex-grow: 1; 
+}
+
+/* --- AJUSTE DE LA ONDA (WAVE) --- */
+
+.navbar-wave {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: url('../general/wave.svg') repeat-x;
+  background-size: auto 100%;
+  transform: rotate(180deg) scaleX(-1);
+  z-index: 10001;
+  transition: all 0.8s ease-in-out;
+}
+
+/* --- ESTILOS DEL DRAWER (MÓVIL) --- */
+
+.menu-icon {
+  /* display: none; Oculto por defecto en escritorio */
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1002; /* Más alto que el drawer */
+}
+
+.drawer {
+   /* El menú comienza fuera de la pantalla, fijado a la DERECHA */
+   position: fixed;
+  top: 60px; /* Debajo de la navbar */
+  right: 0; /* <-- CAMBIO: Fijar a la derecha */
+  left: auto; /* <-- IMPORTANTE: Anular left: 0; si estuviera heredado */
+  width: 250px; /* Ancho del menú desplegable */
+  height: 100%;
+  background-color: #000000e0; /* Fondo semitransparente o el que prefieras */
+  z-index: 999;
+  /* CAMBIO: Oculto fuera de la vista hacia la DERECHA */
+  transform: translateX(100%); 
+  transition: transform 0.3s ease-in-out;
+  padding-top: 20px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* Sombra a la izquierda */
+  display: block; 
+  flex-direction: column;
+}
+
+  .drawer.open {
+    /* Cuando está abierto, se desliza hacia la vista */
+    transform: translateX(0);
+  }
+
+
+.drawer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.drawer-nav li {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drawer-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: block;
+}
+
+/* --- MEDIA QUERY PARA MÓVILES (ejemplo: < 768px) --- */
+@media (max-width: 768px) {
+  
+  /* Mostrar icono de hamburguesa */
+  .menu-icon {
+    display: block; 
+  }
+
+  /* Ocultar navegación de escritorio */
+  .desktop-nav {
+    display: none;
+  }
+  
+  /* Ajustar el tamaño del título en móvil */
+  .navbar-header h1 {
+    font-size: 1.2rem;
+  }
+
+  /* Asegurarse de que el brand no sea demasiado grande y empuje el ícono */
+  .navbar-brand {
+    flex-grow: 1;
+    overflow: hidden; /* Oculta si el texto es muy largo */
+  }
+
+  /* --- AJUSTE DE LA ONDA (WAVE) PARA MOSTRAR SOLO LA MITAD DERECHA --- */
+.navbar-wave {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 30px; /* Mantén la altura original si quieres que la onda se vea completa verticalmente */
+  
+  /* Carga la imagen una sola vez */
+  background: url('../general/wave.svg') no-repeat;
+  
+  /* Duplica el tamaño del fondo para que quepa la mitad del SVG en el 100% del ancho */
+  background-size: 200% 100%;
+  /* Posiciona el fondo al 100% del ancho (la derecha) */
+  background-position: 100% 0; 
+  /* Si necesitas rotarla, puedes mantener este transform, si no, elimínalo */
+  transform: rotate(180deg) scaleX(-1); 
+  
+  z-index: 10001;
+  transition: all 0.8s ease-in-out;
+}
+
+.navbar-header h1 {
+  font-size: 1.1rem; /* Mantienes el tamaño ajustado */
+    /* ELIMINAMOS la restricción de nowrap para que el texto se envuelva */
+    white-space: normal; 
+    /* Permite que el texto ocupe el espacio necesario */
+    flex-shrink: 1;
+    /* Para asegurar que el texto no se pegue al logo o al ícono */
+    max-width: 250px; /* Ajusta este valor si es necesario, dependiendo del tamaño del logo y el ícono */
+ }
+
+}

@@ -1,5 +1,10 @@
 # PaKua Web
 Sitio web oficial de la Escuela de Artes Orientales PaKua - Tucumán, Argentina.
+## Objetivos
+- [x] Web responsive para muestra de clases y servicios
+- [x] Integración con WhatsApp para contacto directo
+- [x] Galería de disciplinas con imágenes
+- [x] Conexión a API externa para gestión de contenido con una base de datos propia
 ## Sobre la Escuela
 Escuela especializada en artes marciales y terapias orientales con más de 20 años de trayectoria en Tucumán. Ofrecemos clases de:
 - **Artes Marciales:** Arte Marcial, Niños, Acrobacia, Defensa Personal, Lucha, Nunchaku, Espada Jian

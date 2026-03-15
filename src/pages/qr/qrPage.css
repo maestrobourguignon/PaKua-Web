@@ -1,0 +1,18 @@
+.qr-page-container{
+  display: flex;
+  /* background-color: var(--background-color); */
+  /* background-color: var(--primary-color); */
+  background: linear-gradient(180deg, var(--secondary-color), var(--primary-color));;
+  width: 100dvw;
+  height: 100dvh;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: cen ter; */
+}
+.titulo{
+  margin-top: 5dvh ;
+  font-family: var(--text-font);
+  font-weight: 600;
+  color: var(--text-contrast-color);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+}

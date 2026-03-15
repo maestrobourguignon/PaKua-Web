@@ -1,0 +1,92 @@
+.triptico-container {
+  padding: 60px 20px;
+  background-color: #ccc; /* Un gris verdoso muy tenue */
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.triptico-header {
+  margin-bottom: 40px;
+}
+
+.triptico-title {
+  color: #4a6741; /* Verde del logo del tríptico */
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.triptico-subtitle {
+  color: #666;
+  font-style: italic;
+}
+
+.triptico-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.triptico-card {
+  position: relative;
+  flex: 1;
+  min-width: 320px;
+  max-width: 500px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.triptico-card:hover {
+  transform: translateY(-5px);
+}
+
+.badge {
+  display: inline-block;
+  background: #4a6741;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.triptico-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+
+/* Estilo para el botón de descarga */
+.download-btn {
+  margin-top: 40px;
+  padding: 15px 35px;
+  background-color: #4a6741;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #385232;
+  box-shadow: 0 5px 15px rgba(74, 103, 65, 0.4);
+}
+
+/* Ajuste para que el Zoom se vea bien sobre otros elementos */
+[data-rmiz-modal-overlay="visible"] {
+  background-color: rgba(255, 255, 255, 0.95);
+}

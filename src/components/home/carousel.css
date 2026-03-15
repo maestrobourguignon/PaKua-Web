@@ -1,0 +1,104 @@
+/* .carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: calc(1000px + 4rem);
+  margin-top: 60px;
+  width: calc(80vw + 4rem);
+  max-width: calc(1000px + 4rem);
+  height: 40vw;
+  max-height: 500px;
+  background-color: #f0f0f0;
+  z-index: 0;
+
+}
+.img-carrusel {
+  object-fit: cover;
+  width: 80vw;
+  max-width: 1000px;
+  opacity: 0;
+  transition: 1s;
+}
+
+.loaded {
+  opacity: 1;
+} */
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  
+  /* Dimensiones del contenedor */
+  width: calc(80vw + 4rem);
+  max-width: calc(1000px + 4rem);
+  height: 40vw;
+  max-height: 500px;
+  
+  background-color: #f0f0f0;
+  z-index: 0;
+  
+  /* IMPORTANTE: Esto asegura que si la imagen es muy grande, no se salga de los bordes redondeados si los tuvieras, o del area */
+  position: relative; /* Buena práctica para posicionar elementos internos */
+}
+
+.img-carrusel {
+  /* Hacemos que la imagen ocupe todo el espacio de su padre (.carousel-container) */
+  width: 100%;
+  height: 100%;
+
+  /* LA CLAVE MÁGICA: */
+  object-fit: cover; 
+  /* 'cover' recorta la imagen si es necesario para llenar el espacio sin deformarla. 
+     Si prefieres que se vea la imagen entera (aunque queden bordes grises), usa 'contain' */
+  
+  object-position: center; /* Centra la imagen para que el recorte sea equilibrado */
+  
+  opacity: 0;
+  transition: opacity 2s ease-out; /* Transición más suave */
+}
+
+.loaded {
+  opacity: 1;
+}
+
+/* Solo agrega esto, NO toques tus clases .carousel-container ni .img-carrusel */
+
+.image-caption {
+  position: absolute; /* Se "pega" al contenedor padre */
+  bottom: 20px;       /* Distancia desde abajo */
+  right: 20px;        /* Distancia desde la derecha */
+  
+  /* Estilo visual */
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 2rem;
+  /* font-weight: bold; */
+  pointer-events: none; /* Para que el click traspase el texto si hay link en la imagen */
+  z-index: 10; /* Asegura que quede por encima de la imagen */
+  font-family: var(--text-font);
+}
+
+/* Opcional: Si en celular se ve muy grande, puedes achicarlo */
+@media (max-width: 768px) {
+  .image-caption {
+    font-size: 1.2rem;
+    padding: 5px 8px;
+  }
+
+  .carousel-container {
+    /* En PC usas 40vw, pero en celular necesitamos que sea más alto.
+       Puedes usar una altura fija en píxeles o un porcentaje mayor del ancho */
+    
+    height: 35dvh; /* Altura fija para que se vea bien la imagen vertical */
+    min-height: 35dvh;
+    /* Opcional: También hacemos que ocupe un poco más de ancho en el celular */
+    width: 100vw;
+
+
+  }
+
+}

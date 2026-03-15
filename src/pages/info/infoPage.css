@@ -1,0 +1,187 @@
+
+.modern-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0px;
+  width: 100dvw;
+  margin-top: 60px;
+}
+
+/* Sección de introducción - Dos columnas */
+.intro-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+  padding: 40px 0;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.image-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.main-title {
+  font-size: 3.5em;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  /* text-shadow: 0px 0px 10px rgba(239, 184, 16, 1); */
+}
+
+.emoji-titulo {
+  height: 1.2em;
+  margin-right: 10px;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  color: var(--secondary-color);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+.yoga-hero-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección de características (cards) */
+.benefit-section {
+  max-width: 1000px;
+  /* Reducimos el padding en mobile para ganar espacio */
+  padding: 40px 1rem; 
+  border-radius: 15px;
+  text-align: center;
+  margin: 0 auto 60px auto;
+  /* Evita que la sección misma desborde */
+  box-sizing: border-box; 
+  width: 100%;
+}
+
+.benefit-section h2 {
+  /* Tamaño de fuente más pequeño en mobile */
+  font-size: 1.8em; 
+  color: var(--secondary-color);
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.benefit-grid {
+  display: grid;
+  width: 100%;
+  max-width: 1000px;
+  /* Fuerza 1 sola columna por defecto. 
+     El uso de 1fr asegura que no se salga de los bordes.
+  */
+  grid-template-columns: 1fr; 
+  gap: 20px;
+  padding: 0; /* Quitamos padding extra que pueda empujar la card fuera */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* --- MEDIA QUERIES PARA PANTALLAS GRANDES --- */
+
+@media (min-width: 768px) {
+  
+  .benefit-section {
+    padding: 60px 2rem;
+  }
+
+  .benefit-section h2 {
+    font-size: 2.5em;
+  }
+
+  .benefit-grid {
+    /* En tablets/PC vuelve a ser dinámico. 
+       minmax(250px, 1fr) permite que se pongan uno al lado del otro.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+}
+
+
+/* Botón de WhatsApp */
+.cta-button {
+  display: inline-block;
+  /* background-color: #25d366; */
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center; /* Alinea los elementos verticalmente al centro */
+  justify-content: center;
+  font-size: 1.2em;
+  
+}
+
+.cta-button:hover {
+  background-color: #20b358;
+  transform: scale(1.05);
+}
+.info-page-container{
+  display: flex;
+  width: 100dvw;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.icono-grande{
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+.icono-grande2{
+  font-size: 2em;
+  margin-right: 10px;
+}
+
+.separador-btn{
+  margin-top: -1rem;
+  margin-bottom: 4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modern-page-container {
+    max-width: 90%;    
+  }
+  .intro-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .main-title {
+    font-size: 2.5em;
+  }
+
+  .subtitle {
+    font-size: 1.2em;
+  }
+}

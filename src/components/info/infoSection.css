@@ -1,0 +1,41 @@
+/* Animación inicial desde la izquierda */
+.animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+/* Animación inicial desde la derecha */
+.animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
+}
+
+/* Clase visible para activar animación */
+.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.whatsapp-button {
+  text-align: center;
+}
+
+.description2 {
+  font-size: larger ;
+}
+.description-container {
+  background-color: var(--alt-background-color);
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .image-content.animate-right {
+    transform: translateX(0);
+  }
+}

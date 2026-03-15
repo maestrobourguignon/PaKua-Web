@@ -1,0 +1,44 @@
+.section {
+  padding: 1rem 2rem;
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  display: block;
+    unicode-bidi: isolate;
+
+  margin-bottom: 2rem;
+
+}
+
+.fullSection {
+    padding: 1rem 2rem;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0;
+  display: block;
+    unicode-bidi: isolate;
+  align-self: center;
+  margin-bottom: 3rem;
+}
+
+.alt-bg {
+  background-color: var(--alt-background-color);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.grid div {
+  border-radius: 5px;
+  background: white;
+  padding: 1rem;
+  border-left: 4px solid #c0392b;
+  box-shadow: 2px 2px 4px rgb(70, 70, 70, 0.5);
+
+}
+
+

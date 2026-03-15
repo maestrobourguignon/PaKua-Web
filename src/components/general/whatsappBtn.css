@@ -1,0 +1,29 @@
+.whatsapp-btn-component{
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 5px 0;
+  padding-left: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-btn-component:hover {
+  background-color: #20b358;
+  text-decoration: none;
+  color: white;
+  width: 65px;
+  height: 65px;
+  bottom: 15px;
+  right: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+  font-size: 1.34em;
+}

@@ -1,0 +1,66 @@
+.boton-maestrias {
+  position: relative;    
+  border-radius: 5px;
+  background: white;
+  padding: 1rem;
+  border-left: 4px solid #c0392b;
+  box-shadow: 2px 2px 4px rgb(70, 70, 70, 0.5);
+  overflow: hidden; 
+  max-width: 230px; /* para que la imagen no se salga del contenedor */
+}
+
+@media screen and (max-width: 768px) {
+  .boton-maestrias {
+    max-width: 100%; 
+  }
+  
+}
+
+.boton-maestrias .over {
+  position: relative;
+    z-index: 1; /* para que el texto esté por encima de la imagen */
+}
+.boton-maestrias:hover {
+  cursor: pointer;
+}
+
+.boton-invisible {
+ opacity: 0;
+ cursor: default;
+}
+
+.icono-maestria {
+  position: absolute;   /* ahora relativo al .boton-maestrias */
+  bottom: 10px;         /* pegado abajo del contenedor */
+  right: 10px;          /* pegado a la derecha */
+  width: 40px;          /* tamaño ajustable */
+  height: auto;
+  opacity: 1;        /* baja opacidad para que no distraiga */
+}
+
+.icono-horizontal {
+  height: 40px;
+  width: auto;
+}
+
+.imagen-maestria {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;                  /* centrado horizontal final */
+  transform: translate(-150%, 0); /* empieza fuera a la izquierda */
+  max-width: 100%;
+  max-height: 90%;
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0s linear;
+  pointer-events: none;
+  z-index: 0; /* detrás del texto */
+}
+
+.boton-maestrias:hover .imagen-maestria {
+  transform: translate(-50%, 0) scale(1.1); /* centrada y ligeramente más grande */
+  opacity: 0.4; /* visible con baja opacidad */
+}
+.boton-maestrias:hover .icono-maestria {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}

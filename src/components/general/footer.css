@@ -1,0 +1,39 @@
+.footer {
+  width: 100dvw;
+}
+.footer-section {
+  padding: 4rem 2rem;
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  /* text-align: center; */
+
+}
+
+.separado-2rem {
+opacity: 0;
+}
+
+.msg-button {
+  background-color: #c0392b;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.msg-button:hover {
+  background-color: #a93226;
+}
+
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 2rem 0;
+  width: 100%;
+}

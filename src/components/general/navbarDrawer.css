@@ -1,0 +1,143 @@
+/* Navbar Drawer - Menú lateral para todos los dispositivos */
+
+.navbar-drawer {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 280px;
+  height: calc(100vh - 60px);
+  background-color: #1a1a1a;
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-nav {
+  padding: 10px 0;
+}
+
+.drawer-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.drawer-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawer-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-align: left;
+  font-family: var(--font-body);
+}
+
+.drawer-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent-color);
+}
+
+.drawer-toggle {
+  font-family: var(--font-body);
+}
+
+.drawer-toggle svg {
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+/* Submenú - expandido con click */
+.drawer-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: max-height 0.3s ease-out;
+}
+
+.drawer-submenu.expanded {
+  max-height: 500px;
+}
+
+.drawer-sublink {
+  display: block;
+  padding: 12px 20px 12px 36px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.drawer-sublink:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border-left-color: var(--accent-color);
+}
+
+/* Overlay */
+.navbar-overlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.navbar-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mostrar botón de hamburguesa siempre */
+.menu-icon {
+  display: block !important;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1002;
+  color: white;
+}
+
+/* Scrollbar personalizada */
+.navbar-drawer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.navbar-drawer::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.navbar-drawer::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+
+.navbar-drawer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

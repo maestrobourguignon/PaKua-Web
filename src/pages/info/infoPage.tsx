@@ -14,9 +14,9 @@ import { useEffect, useState } from 'react';
 import type { UrlProps } from '../home/homePage.tsx';
 
 
-export const InfoPage = ({apiUrl, imgLink}:UrlProps) => {
+export const InfoPage = ({ apiUrl, imgLink }: UrlProps) => {
   const { slug } = useParams();
-  const [data,setData] = useState<Partial<InfoSectionData>>({})
+  const [data, setData] = useState<Partial<InfoSectionData>>({})
   const [beneficios, setBeneficios] = useState([])
   const [display, setDisplay] = useState([])
   const [loading, setLoading] = useState(true)
@@ -27,39 +27,48 @@ export const InfoPage = ({apiUrl, imgLink}:UrlProps) => {
   const maestria = slug;
 
   // SOLUCIÓN: Usamos (infoData as any) para saltar la seguridad estricta de TypeScript temporalmente
-   useEffect(() => {
-      fetch(`${apiUrl}contenido/${slug}`)
-        .then(response => response.json())
-        .then(datas => setData(datas))
-        .catch(error => console.error('Error fetching terapeuticas:', error));
-      fetch(`${apiUrl}beneficios/${slug}`)
-        .then(response => response.json())
-        .then(datas => setBeneficios(datas))
-      // fetch(`${apiUrl}especial/cursos`)
-      //   .then(response => response.json())
-      //   .then(data => setCursosTipos(data))
-      //   .catch(error => console.error('Error fetching marciales:', error));
-  
-      setLoading(false)
-    }, [slug]);
+  useEffect(() => {
+    fetch(`${apiUrl}contenido/${slug}`, {
+      method: 'GET',
+      cache: 'no-store'
+    })
+      .then(response => response.json())
+      .then(datas => setData(datas))
+      .catch(error => console.error('Error fetching terapeuticas:', error));
+    fetch(`${apiUrl}beneficios/${slug}`)
+      .then(response => response.json())
+      .then(datas => setBeneficios(datas))
+    // fetch(`${apiUrl}especial/cursos`)
+    //   .then(response => response.json())
+    //   .then(data => setCursosTipos(data))
+    //   .catch(error => console.error('Error fetching marciales:', error));
 
-    if(slug==='cursos-terapeuticos'){
-      useEffect(()=>{
+    setLoading(false)
+  }, [slug]);
 
-        fetch(`${apiUrl}categoria/curso%20terapeutico`)
-        .then(response => response.json())
-        .then(datas=>setDisplay(datas))
-        
-      },[slug])
-    } else if(slug==='cursos-marciales'){
-      useEffect(()=>{
+  if (slug === 'cursos-terapeuticos' || slug === 'cursosterapeuticos') {
+    useEffect(() => {
 
-        fetch(`${apiUrl}categoria/curso%20marcial`)
+      fetch(`${apiUrl}categoria/curso%20terapeutico`, {
+        method: 'GET',
+        cache: 'no-store'
+      })
         .then(response => response.json())
-        .then(datas=>setDisplay(datas))
-        
-      },[slug])
-    }
+        .then(datas => setDisplay(datas))
+
+    }, [slug])
+  } else if (slug === 'cursos-marciales' || slug === 'cursosmarciales') {
+    useEffect(() => {
+
+      fetch(`${apiUrl}categoria/curso%20marcial`, {
+        method: 'GET',
+        cache: 'no-store'
+      })
+        .then(response => response.json())
+        .then(datas => setDisplay(datas))
+
+    }, [slug])
+  }
 
 
   // Si después de buscar no encontramos nada...
@@ -69,17 +78,17 @@ export const InfoPage = ({apiUrl, imgLink}:UrlProps) => {
 
   return (
     <>
-    {loading?
-      <></>
-      :
-      <>
-      <Navbar mensaje={data.mensaje_whatsapp!} />
-      <div className="info-page-container">
-        <div className="modern-page-container">
-          <InfoSection data={data as InfoSectionData} imgLink={imgLink}/>
-          {(maestria === "cursos-terapeuticos" || maestria === "cursos-marciales" || maestria === "actividades-terapeuticas") ? 
-          <DisplayMaestrias maestrias={display} tipo={maestria} fullScreen={true} imgLink={imgLink}/> : null}
-          <section id="bienestar" className="benefit-section alt-bg">
+      {loading ?
+        <></>
+        :
+        <>
+          <Navbar mensaje={data.mensaje_whatsapp!} />
+          <div className="info-page-container">
+            <div className="modern-page-container">
+              <InfoSection data={data as InfoSectionData} imgLink={imgLink} />
+              {(maestria === "cursos-terapeuticos" || maestria === "cursos-marciales" || maestria === "actividades-terapeuticas") ?
+                <DisplayMaestrias maestrias={display} tipo={maestria} fullScreen={true} imgLink={imgLink} /> : null}
+              <section id="bienestar" className="benefit-section alt-bg">
                 <h2>{data.beneficio_label}</h2>
                 <div className="benefit-grid">
                   {beneficios.map((beneficio: any, i: any) => (
@@ -89,25 +98,25 @@ export const InfoPage = ({apiUrl, imgLink}:UrlProps) => {
                       titulo={beneficio.titulo}
                       descripcion={beneficio.descripcion}
                       delay={i * 0.2} // 0.2s de diferencia entre cada tarjeta                      
-                      />
-                    ))}
+                    />
+                  ))}
                 </div>
               </section>
-               
-               {maestria==='emplastos'?
-               <div className="separador-btn">
-               <BotonFormulario texto='Inscribirse a la aplicacion de emplastos' link={data.inscripcion!} wp={false} buttonVisible={true}/>
-               </div>
-               :null}
-        </div>
-      </div>
 
-      {slug === 'emplastos' ? <Triptico data={data} wp={true} /> : null}
-      {data.temario ? <InfoCursos 
-        linkTemario={data.temario}></InfoCursos> : null}
-      <Footer mensaje={data.mensaje_whatsapp!} info={maestria} />
-      <WhatsappBtn mensaje={data.mensaje_whatsapp!} />
-    </>}
+              {maestria === 'emplastos' ?
+                <div className="separador-btn">
+                  <BotonFormulario texto='Inscribirse a la aplicacion de emplastos' link={data.inscripcion!} wp={false} buttonVisible={true} />
+                </div>
+                : null}
+            </div>
+          </div>
+
+          {slug === 'emplastos' ? <Triptico data={data} wp={true} /> : null}
+          {data.temario ? <InfoCursos
+            linkTemario={data.temario}></InfoCursos> : null}
+          <Footer mensaje={data.mensaje_whatsapp!} info={maestria} />
+          <WhatsappBtn mensaje={data.mensaje_whatsapp!} />
+        </>}
     </>
   );
 };

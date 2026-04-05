@@ -1,0 +1,109 @@
+.aliados-section {
+  padding: 2rem 0;
+  background-color: var(--alt-background-color);
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.aliados-container {
+  max-width: calc(1000px + 4rem);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.aliados-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+/* Caja/wrapper para el carrusel */
+.aliados-carousel-box {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem 0;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.aliados-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.aliados-carousel {
+  display: flex;
+  padding: 0.3rem 0;
+  gap: 3rem;
+  animation: aliados-scroll 30s linear infinite;
+  width: max-content;
+}
+
+.aliados-carousel:hover {
+  animation-play-state: paused;
+}
+
+.aliados-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aliados-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.aliados-logo-link.circular {
+  border-radius: 50%;
+  border: 3px solid #e5e7eb;
+}
+
+.aliados-logo-link:hover {
+  transform: scale(1.05);
+}
+
+.aliados-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.aliados-placeholder-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-align: center;
+}
+
+@keyframes aliados-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .aliados-title {
+    font-size: 1.5rem;
+  }
+
+  .aliados-logo-link {
+    width: 80px;
+    height: 80px;
+  }
+}

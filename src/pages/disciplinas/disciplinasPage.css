@@ -1,0 +1,109 @@
+.disciplinas-hero {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  min-height: 350px;
+  max-height: 500px;
+  margin-top: 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disciplinas-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.disciplinas-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 100%);
+}
+
+.disciplinas-hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+  max-width: 700px;
+}
+
+.disciplinas-hero-title {
+  font-family: var(--pakua-font, serif);
+  font-size: 3rem;
+  color: white;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.disciplinas-hero-tagline {
+  font-family: var(--text-font, sans-serif);
+  font-size: 1.5rem;
+  color: white;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.disciplinas-hero-desc {
+  font-family: var(--text-font, sans-serif);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 2rem 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.5;
+}
+
+.disciplinas-hero-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  font-family: var(--text-font, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-color);
+}
+
+.disciplinas-hero-btn:hover {
+  background-color: #5a1d1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .disciplinas-hero {
+    height: 45vh;
+    min-height: 300px;
+  }
+
+  .disciplinas-hero-title {
+    font-size: 2rem;
+  }
+
+  .disciplinas-hero-tagline {
+    font-size: 1.2rem;
+  }
+
+  .disciplinas-hero-desc {
+    font-size: 1rem;
+  }
+
+  .disciplinas-hero-btn {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}

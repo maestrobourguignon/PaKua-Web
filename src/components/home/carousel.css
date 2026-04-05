@@ -1,104 +1,180 @@
-/* .carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: calc(1000px + 4rem);
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  max-height: 700px;
   margin-top: 60px;
-  width: calc(80vw + 4rem);
-  max-width: calc(1000px + 4rem);
-  height: 40vw;
-  max-height: 500px;
-  background-color: #f0f0f0;
-  z-index: 0;
-
-}
-.img-carrusel {
-  object-fit: cover;
-  width: 80vw;
-  max-width: 1000px;
-  opacity: 0;
-  transition: 1s;
+  overflow: hidden;
+  background-color: #1a1a1a;
 }
 
-.loaded {
-  opacity: 1;
-} */
-
-.carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 60px;
-  
-  /* Dimensiones del contenedor */
-  width: calc(80vw + 4rem);
-  max-width: calc(1000px + 4rem);
-  height: 40vw;
-  max-height: 500px;
-  
-  background-color: #f0f0f0;
-  z-index: 0;
-  
-  /* IMPORTANTE: Esto asegura que si la imagen es muy grande, no se salga de los bordes redondeados si los tuvieras, o del area */
-  position: relative; /* Buena práctica para posicionar elementos internos */
-}
-
-.img-carrusel {
-  /* Hacemos que la imagen ocupe todo el espacio de su padre (.carousel-container) */
+/* Fondo con imagen */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-
-  /* LA CLAVE MÁGICA: */
-  object-fit: cover; 
-  /* 'cover' recorta la imagen si es necesario para llenar el espacio sin deformarla. 
-     Si prefieres que se vea la imagen entera (aunque queden bordes grises), usa 'contain' */
-  
-  object-position: center; /* Centra la imagen para que el recorte sea equilibrado */
-  
   opacity: 0;
-  transition: opacity 2s ease-out; /* Transición más suave */
+  transition: opacity 1s ease-in-out;
 }
 
-.loaded {
+.hero-background.loaded {
   opacity: 1;
 }
 
-/* Solo agrega esto, NO toques tus clases .carousel-container ni .img-carrusel */
-
-.image-caption {
-  position: absolute; /* Se "pega" al contenedor padre */
-  bottom: 20px;       /* Distancia desde abajo */
-  right: 20px;        /* Distancia desde la derecha */
-  
-  /* Estilo visual */
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-size: 2rem;
-  /* font-weight: bold; */
-  pointer-events: none; /* Para que el click traspase el texto si hay link en la imagen */
-  z-index: 10; /* Asegura que quede por encima de la imagen */
-  font-family: var(--text-font);
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Opcional: Si en celular se ve muy grande, puedes achicarlo */
+/* Clases de posición para las imágenes */
+.hero-img-top {
+  object-position: top !important;
+}
+
+.hero-img-center {
+  object-position: center !important;
+}
+
+.hero-img-bottom {
+  object-position: bottom !important;
+}
+
+/* Overlay oscuro para legibilidad del texto */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.7) 100%);
+}
+
+/* Contenido centrado */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Logo */
+.hero-logo-container {
+  margin-bottom: 1.5rem;
+}
+
+.hero-logo {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Tagline */
+.hero-tagline {
+  font-family: var(--text-font, sans-serif);
+  font-size: 1.5rem;
+  color: white;
+  margin: 0 0 2.5rem 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Contenedor de los 4 botones fijos - 2x2 grid */
+.hero-buttons-fixed {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Botones fijos */
+.hero-btn-fixed {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  font-family: var(--text-font, sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.hero-btn-fixed.primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: 2px solid var(--primary-color);
+}
+
+.hero-btn-fixed.primary:hover {
+  background-color: #5a1d1c;
+  border-color: #5a1d1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-btn-fixed.secondary {
+  background-color: white;
+  color: var(--primary-color);
+  border: 2px solid white;
+}
+
+.hero-btn-fixed.secondary:hover {
+  background-color: white;
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .image-caption {
-    font-size: 1.2rem;
-    padding: 5px 8px;
+  .hero-carousel {
+    height: 60vh;
+    min-height: 450px;
   }
 
-  .carousel-container {
-    /* En PC usas 40vw, pero en celular necesitamos que sea más alto.
-       Puedes usar una altura fija en píxeles o un porcentaje mayor del ancho */
-    
-    height: 35dvh; /* Altura fija para que se vea bien la imagen vertical */
-    min-height: 35dvh;
-    /* Opcional: También hacemos que ocupe un poco más de ancho en el celular */
-    width: 100vw;
-
-
+  .hero-logo {
+    max-width: 150px;
   }
 
+  .hero-tagline {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Mantener 2x2 en móvil */
+  .hero-buttons-fixed {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    max-width: 400px;
+    gap: 0.75rem;
+  }
+
+  .hero-btn-fixed {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-tagline {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons-fixed {
+    max-width: 320px;
+  }
 }

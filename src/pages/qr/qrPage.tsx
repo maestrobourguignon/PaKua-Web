@@ -15,7 +15,7 @@ export const QrPage = () => {
     },
     {
       icon: instagram,
-      text: 'Instagram PaKua',
+      text: 'Instagram BAGUA',
       link: 'https://www.Instagram.com/recintodepakua/'
     },
     {

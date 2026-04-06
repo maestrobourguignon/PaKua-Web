@@ -22,14 +22,14 @@ export const HomePage = ({ apiUrl, imgLink }: UrlProps) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${apiUrl}especial/emplastos`)
+    fetch(`${apiUrl}contenido/especial/emplastos`)
       .then(response => response.json())
       .then(data => setMaestriasTerapeuticas(data))
       .catch(error => console.error('Error fetching terapeuticas:', error));
-    fetch(`${apiUrl}categoria/disciplina%20marcial`)
+    fetch(`${apiUrl}contenido/categoria/disciplina%20marcial`)
       .then(response => response.json())
       .then(data => setMaestriasMarciales(data))
-    fetch(`${apiUrl}especial/cursos`)
+    fetch(`${apiUrl}contenido/especial/cursos`)
       .then(response => response.json())
       .then(data => setCursosTipos(data))
       .catch(error => console.error('Error fetching marciales:', error));

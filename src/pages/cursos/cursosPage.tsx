@@ -40,13 +40,13 @@ export const CursosPage = ({ apiUrl, imgLink }: UrlProps) => {
 
   useEffect(() => {
     // Fetch cursos terapéuticos
-    fetch(`${apiUrl}categoria/curso%20terapeutico`)
+    fetch(`${apiUrl}contenido/categoria/curso%20terapeutico`)
       .then(response => response.json())
       .then(data => setCursosTerapeuticos(data))
       .catch(error => console.error('Error fetching cursos terapeuticos:', error));
 
     // Fetch cursos marciales
-    fetch(`${apiUrl}categoria/curso%20marcial`)
+    fetch(`${apiUrl}contenido/categoria/curso%20marcial`)
       .then(response => response.json())
       .then(data => setCursosMarciales(data))
       .catch(error => console.error('Error fetching cursos marciales:', error));
@@ -60,8 +60,8 @@ export const CursosPage = ({ apiUrl, imgLink }: UrlProps) => {
 
       {/* Hero Section */}
       <div className="cursos-hero">
-        <img 
-          src={heroConfig.imagen} 
+        <img
+          src={heroConfig.imagen}
           alt="Cursos"
           className="cursos-hero-img"
           style={getImageStyle(heroConfig.focusPosition)}

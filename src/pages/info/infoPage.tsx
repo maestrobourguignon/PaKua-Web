@@ -49,7 +49,7 @@ export const InfoPage = ({ apiUrl, imgLink }: UrlProps) => {
   if (slug === 'cursos-terapeuticos' || slug === 'cursosterapeuticos') {
     useEffect(() => {
 
-      fetch(`${apiUrl}categoria/curso%20terapeutico`, {
+      fetch(`${apiUrl}contenido/categoria/curso%20terapeutico`, {
         method: 'GET',
         cache: 'no-store'
       })
@@ -60,7 +60,7 @@ export const InfoPage = ({ apiUrl, imgLink }: UrlProps) => {
   } else if (slug === 'cursos-marciales' || slug === 'cursosmarciales') {
     useEffect(() => {
 
-      fetch(`${apiUrl}categoria/curso%20marcial`, {
+      fetch(`${apiUrl}contenido/categoria/curso%20marcial`, {
         method: 'GET',
         cache: 'no-store'
       })

@@ -96,7 +96,7 @@ export const AliadosComponent = ({
   }
 
   // Duplicar aliados para efecto infinito
-  const duplicatedAliados = [...aliados, ...aliados];
+  const duplicatedAliados = [...aliados, ...aliados, ...aliados];
 
   return (
     <section className={`aliados-section ${className}`}>
@@ -112,7 +112,8 @@ export const AliadosComponent = ({
                     href={aliado.link || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`aliados-logo-link ${aliado.circular ? 'circular' : ''}`}
+                    // className={`aliados-logo-link ${aliado.circular ? 'circular' : ''}`}
+                    className={`aliados-logo-link`}
                   >
                     {aliado.imagen ? (
                       <img src={aliado.imagen} alt={aliado.nombre} className="aliados-img" />

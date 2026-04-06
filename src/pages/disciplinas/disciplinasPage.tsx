@@ -27,15 +27,15 @@ const disciplinasConfig: Record<string, {
     imagen: '/uploads/carrusel/arteMarcial.jpg',
     focusPosition: '-45',
     tagline: 'Arte Marcial y Defensa Personal',
-    descripcion: 'Aprende kung fu, tai chi, defensa personal y más en un ambiente de respeto y crecimiento.¡Transforma tu cuerpo y mente con nuestras artes marciales tradicionales!'
+    descripcion: 'Aprende arte marcial, defensa personal y más, en un ambiente de respeto y crecimiento. ¡Transforma tu cuerpo y mente con nuestras practicas tradicionales!'
   },
   '/disciplinas-terapeuticas': {
     tipo: 'Terapeuticas',
     titulo: 'Disciplinas Terapéuticas',
     imagen: '/uploads/carrusel/yoga.png',
     focusPosition: 'top',
-    tagline: 'Yoga Integral y Terapias Orientales',
-    descripcion: 'Conecta cuerpo y mente con yoga, tai chi y técnicas ancestrales.¡Descubre el bienestar integral a través de nuestras terapias orientales!'
+    tagline: 'Respiración y Movimiento',
+    descripcion: 'Conecta cuerpo y mente con Yoga, TaiChi y técnicas ancestrales.¡Descubre el bienestar integral a través de nuestras disciplinas orientales!'
   }
 };
 
@@ -71,8 +71,8 @@ export const DisciplinasPage = ({ apiUrl, imgLink }: UrlProps) => {
 
     // Fetch según el tipo
     const fetchUrl = config.tipo === 'Marciales'
-      ? `${apiUrl}categoria/disciplina marcial`
-      : `${apiUrl}especial/emplastos`;
+      ? `${apiUrl}contenido/categoria/disciplina marcial`
+      : `${apiUrl}contenido/especial/emplastos`;
 
     fetch(fetchUrl)
       .then(response => response.json())
